@@ -11,6 +11,9 @@
 		EE75EB60298CA89D003F2E1C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE75EB5F298CA89D003F2E1C /* ContentView.swift */; };
 		EE75EB62298CA89E003F2E1C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE75EB61298CA89E003F2E1C /* Assets.xcassets */; };
 		EE75EB65298CA89E003F2E1C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE75EB64298CA89E003F2E1C /* Preview Assets.xcassets */; };
+		EE75EB70298CE3B7003F2E1C /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE75EB6F298CE3B7003F2E1C /* Song.swift */; };
+		EE75EB72298CE544003F2E1C /* SongListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE75EB71298CE544003F2E1C /* SongListViewModel.swift */; };
+		EE75EB74298CEA02003F2E1C /* SearchListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE75EB73298CEA02003F2E1C /* SearchListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +22,10 @@
 		EE75EB5F298CA89D003F2E1C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		EE75EB61298CA89E003F2E1C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EE75EB64298CA89E003F2E1C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		EE75EB6F298CE3B7003F2E1C /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
+		EE75EB71298CE544003F2E1C /* SongListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongListViewModel.swift; sourceTree = "<group>"; };
+		EE75EB73298CEA02003F2E1C /* SearchListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListView.swift; sourceTree = "<group>"; };
+		EEC96BDF298E08C500B1014A /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +42,7 @@
 		EE75EB51298CA89D003F2E1C = {
 			isa = PBXGroup;
 			children = (
+				EEC96BDF298E08C500B1014A /* README.md */,
 				EE75EB5C298CA89D003F2E1C /* iTunesSearch */,
 				EE75EB5B298CA89D003F2E1C /* Products */,
 			);
@@ -51,6 +59,9 @@
 		EE75EB5C298CA89D003F2E1C /* iTunesSearch */ = {
 			isa = PBXGroup;
 			children = (
+				EE75EB6E298CCD93003F2E1C /* DataModel */,
+				EE75EB6C298CCD33003F2E1C /* ViewModel */,
+				EE75EB6B298CCD22003F2E1C /* View */,
 				EE75EB5D298CA89D003F2E1C /* iTunesSearchApp.swift */,
 				EE75EB5F298CA89D003F2E1C /* ContentView.swift */,
 				EE75EB61298CA89E003F2E1C /* Assets.xcassets */,
@@ -65,6 +76,30 @@
 				EE75EB64298CA89E003F2E1C /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		EE75EB6B298CCD22003F2E1C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EE75EB73298CEA02003F2E1C /* SearchListView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		EE75EB6C298CCD33003F2E1C /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				EE75EB71298CE544003F2E1C /* SongListViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		EE75EB6E298CCD93003F2E1C /* DataModel */ = {
+			isa = PBXGroup;
+			children = (
+				EE75EB6F298CE3B7003F2E1C /* Song.swift */,
+			);
+			path = DataModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +172,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE75EB72298CE544003F2E1C /* SongListViewModel.swift in Sources */,
+				EE75EB70298CE3B7003F2E1C /* Song.swift in Sources */,
 				EE75EB60298CA89D003F2E1C /* ContentView.swift in Sources */,
 				EE75EB5E298CA89D003F2E1C /* iTunesSearchApp.swift in Sources */,
+				EE75EB74298CEA02003F2E1C /* SearchListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,6 +313,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -304,6 +343,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
