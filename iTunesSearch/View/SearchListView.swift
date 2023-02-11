@@ -8,51 +8,38 @@
 import SwiftUI
 
 struct SearchListView: View {
-    @State var searchText: String = ""
-    @State var searchTypes: [String] = ["歌手", "歌曲", "專輯"]
+    @State var searchText = ""
+    @State var searchTypes: [String] = [ "歌曲", "專輯", "歌手"]
+    @State private var selectedType = "歌曲"
     @StateObject var songListViewModel = SongListViewModel()
     var body: some View {
         NavigationView{
-            List{
-                ForEach(songListViewModel.songs) { song in
-                    Button(action: {
-                        print("onTap: \(song.trackName), \(song.artistID)")
-                    }, label:{
-                        HStack {
-                            UrlImageView(urlString: song.artworkUrl60)
-                            VStack(alignment: .leading) {
-                                Text(song.trackName)
-                                Text(song.artistName)
-                                    .foregroundColor(Color.gray)
-                            }
-                            Spacer()
-                        }}
-                    )
-                    .contentShape(Rectangle())
-                    
-                }
-                switch songListViewModel.state {
-                    case .empty:
+            VStack {
+                Picker(selection: $selectedType) {
+                    ForEach(searchTypes, id: \.self) { type in
+                        Text(type)
+                    }
+                } label: {}
+                    .pickerStyle(.segmented)
+                    .padding(10)
+                switch (selectedType){
+                    case "歌曲":
+                        SearchSongView(songListViewModel: songListViewModel)
+                    case "專輯":
+//                        SearchAlbumView()
                         EmptyView()
-                    case .good:
-                        Color.clear
-                            .onAppear(){
-                                songListViewModel.loadMore()
-                            }
-                    case .isLoading:
-                        ProgressView()
-                            .progressViewStyle(.circular)
-                            .frame(maxWidth: .infinity)
-                    case .loadedAll:
+                    default:
                         EmptyView()
-                    case .error(let message):
-                        Text(message)
-                            .foregroundColor(.pink)
                 }
+                
             }
             .listStyle(.plain)
             .navigationBarTitle("搜尋")
-            .searchable(text: $songListViewModel.searchText)
+            .searchable(text: $searchText)
+        }
+        .onChange(of: searchText) { newValue in
+            songListViewModel.searchText = newValue
+            
         }
     }
 }

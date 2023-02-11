@@ -96,4 +96,10 @@ class SongListViewModel: ObservableObject{
             }
         }.resume()
     }
+    
+    static func example() -> SongListViewModel {
+        let vm = SongListViewModel()
+        vm.searchText = "Mayday"
+        return vm
+    }
 }
