@@ -7,16 +7,29 @@
 
 import SwiftUI
 
-// TODO: xxx - 歌手, xxx - 歌曲, xxx - 專輯
 struct SearchListView: View {
-    @State var searchText: String = "煎熬"
+    @State var searchText: String = ""
     @State var searchTypes: [String] = ["歌手", "歌曲", "專輯"]
     @StateObject var songListViewModel = SongListViewModel()
     var body: some View {
         NavigationView{
             List{
                 ForEach(songListViewModel.songs) { song in
-                    Text(song.trackName)
+                    Button(action: {
+                        print("onTap: \(song.trackName), \(song.artistID)")
+                    }, label:{
+                        HStack {
+                            UrlImageView(urlString: song.artworkUrl60)
+                            VStack(alignment: .leading) {
+                                Text(song.trackName)
+                                Text(song.artistName)
+                                    .foregroundColor(Color.gray)
+                            }
+                            Spacer()
+                        }}
+                    )
+                    .contentShape(Rectangle())
+                    
                 }
                 switch songListViewModel.state {
                     case .empty:

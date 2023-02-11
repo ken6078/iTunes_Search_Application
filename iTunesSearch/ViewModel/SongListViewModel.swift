@@ -8,8 +8,6 @@
 import Foundation
 import Combine
 
-// https://itunes.apple.com/search?explicit=No&media=music&term=煎熬&limit=5
-
 class SongListViewModel: ObservableObject{
     
     enum State: Comparable {
@@ -60,7 +58,7 @@ class SongListViewModel: ObservableObject{
         guard self.state == State.good else {return}
         
         let offset = limit * page
-        let urlText = String(format: "https://itunes.apple.com/search?media=music&term=\(searchText)&explicit=Yes&limit=\(self.limit)&offset=\(offset)")
+        let urlText = String(format: "https://itunes.apple.com/search?country=tw&media=music&term=\(searchText)&explicit=Yes&limit=\(self.limit)&offset=\(offset)")
         guard let encondeUrlText = urlText.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else {return}
         guard let url = URL(string: encondeUrlText) else {return}
         

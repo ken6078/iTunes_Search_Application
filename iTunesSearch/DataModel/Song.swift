@@ -16,18 +16,20 @@ struct Song: Codable, Identifiable {
     let wrapperType, kind: String
     let id: Int
     let artistID: Int
-    let artistName, collectionName, trackName, collectionCensoredName: String
+    let artistName: String
+    let collectionName, collectionCensoredName: String?
+    let trackName: String
     let trackCensoredName: String
-    let artistViewURL, collectionViewURL, trackViewURL: String
+    let artistViewURL, collectionViewURL, trackViewURL: String?
     let previewURL: String?
     let artworkUrl30, artworkUrl60, artworkUrl100: String
     let collectionPrice, trackPrice: Double?
     let releaseDate: String?
     let collectionExplicitness, trackExplicitness: String
-    let discCount, discNumber, trackCount, trackNumber: Int
+    let discCount, discNumber, trackCount, trackNumber: Int?
     let trackTimeMillis: Int
     let country, currency, primaryGenreName: String
-    let isStreamable: Bool
+    let isStreamable: Bool?
     let collectionArtistID: Int?
     let collectionArtistName: String?
 

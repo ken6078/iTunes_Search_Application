@@ -14,6 +14,7 @@
 		EE75EB70298CE3B7003F2E1C /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE75EB6F298CE3B7003F2E1C /* Song.swift */; };
 		EE75EB72298CE544003F2E1C /* SongListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE75EB71298CE544003F2E1C /* SongListViewModel.swift */; };
 		EE75EB74298CEA02003F2E1C /* SearchListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE75EB73298CEA02003F2E1C /* SearchListView.swift */; };
+		EEC96BE1298E91AD00B1014A /* UrlImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC96BE0298E91AD00B1014A /* UrlImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		EE75EB71298CE544003F2E1C /* SongListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongListViewModel.swift; sourceTree = "<group>"; };
 		EE75EB73298CEA02003F2E1C /* SearchListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListView.swift; sourceTree = "<group>"; };
 		EEC96BDF298E08C500B1014A /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		EEC96BE0298E91AD00B1014A /* UrlImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				EE75EB73298CEA02003F2E1C /* SearchListView.swift */,
+				EEC96BE0298E91AD00B1014A /* UrlImageView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -174,6 +177,7 @@
 			files = (
 				EE75EB72298CE544003F2E1C /* SongListViewModel.swift in Sources */,
 				EE75EB70298CE3B7003F2E1C /* Song.swift in Sources */,
+				EEC96BE1298E91AD00B1014A /* UrlImageView.swift in Sources */,
 				EE75EB60298CA89D003F2E1C /* ContentView.swift in Sources */,
 				EE75EB5E298CA89D003F2E1C /* iTunesSearchApp.swift in Sources */,
 				EE75EB74298CEA02003F2E1C /* SearchListView.swift in Sources */,
