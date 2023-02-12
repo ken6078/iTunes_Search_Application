@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct ContentView: View {
+    init() {
+        UITabBar.appearance().backgroundColor = UIColor(Color("DefultBackgrondColor"))
+    }
     @State var shouldShowTabBar = false
     var body: some View {
         TabView{
