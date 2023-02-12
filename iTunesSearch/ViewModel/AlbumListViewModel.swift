@@ -1,14 +1,14 @@
 //
-//  SongListViewModel.swift
+//  AlbumListViewModel.swift
 //  iTunesSearch
 //
-//  Created by Jacky Ben on 2023/2/3.
+//  Created by Jacky Ben on 2023/2/12.
 //
 
 import Foundation
 import Combine
 
-class SongListViewModel: ObservableObject{
+class AlbumListViewModel: ObservableObject{
     
     enum State: Comparable {
         case empty
@@ -19,7 +19,7 @@ class SongListViewModel: ObservableObject{
     }
     
     @Published var searchText: String = ""
-    @Published var songs: [Song] = [Song]()
+    @Published var albums: [Album] = [Album]()
     @Published var state: State = .good{
         didSet{
             print("state chenged to: \(state)")
@@ -37,7 +37,7 @@ class SongListViewModel: ObservableObject{
             .debounce(for: .seconds(0.5), scheduler: RunLoop.main)
             .sink{[weak self] text in
                 self?.state = .good
-                self?.songs = []
+                self?.albums = []
                 self?.page = 0
                 self?.getSongList(for: text)
             }.store(in: &subscriptions)
@@ -58,7 +58,7 @@ class SongListViewModel: ObservableObject{
         guard self.state == State.good else {return}
         
         let offset = limit * page
-        let urlText = String(format: "https://itunes.apple.com/search?country=tw&media=music&term=\(searchText)&explicit=Yes&limit=\(self.limit)&offset=\(offset)&entity=song")
+        let urlText = String(format: "https://itunes.apple.com/search?country=tw&media=music&term=\(searchText)&explicit=Yes&limit=\(self.limit)&offset=\(offset)&entity=album")
         guard let encondeUrlText = urlText.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else {return}
         guard let url = URL(string: encondeUrlText) else {return}
         
@@ -73,10 +73,11 @@ class SongListViewModel: ObservableObject{
                 }
             } else if let data = data {
                 do {
-                    let result = try JSONDecoder().decode(SongResult.self, from: data)
+                    let result = try JSONDecoder().decode(AlbumResult.self, from: data)
                     DispatchQueue.main.async {
-                        for song in result.results {
-                            self?.songs.append(song)
+                        print("Json Decode Findish")
+                        for album in result.results {
+                            self?.albums.append(album)
                         }
                     }
                     self?.page += 1
@@ -87,8 +88,8 @@ class SongListViewModel: ObservableObject{
                 } catch {
                     print("Json Decode error: \(error)")
                     let str = String(decoding: data, as: UTF8.self)
-                    print(str)
-                    print(encondeUrlText)
+                    print("Json Decode error by Url:\(encondeUrlText)")
+//                    print(encondeUrlText)
                     DispatchQueue.main.async {
                         self?.state = .error("Json Decode error: \(error.localizedDescription)")
                     }
