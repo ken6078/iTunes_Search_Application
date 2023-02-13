@@ -9,5 +9,5 @@ https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/
 ## requirements library
 Name    | Version | Link
 --------|-------- | -----------------------------------------------
-Kanna   | 5.2.7.  | https://github.com/tid-kijyun/Kanna
+Kanna   | 5.2.7  | [Github](https://github.com/tid-kijyun/Kanna)
 
