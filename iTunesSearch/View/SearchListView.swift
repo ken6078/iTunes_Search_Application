@@ -13,6 +13,7 @@ struct SearchListView: View {
     @State private var selectedType = "歌曲"
     @StateObject var songListViewModel = SongListViewModel()
     @StateObject var albumListViewModel = AlbumListViewModel()
+    @StateObject var artistListViewModel = ArtistListViewModel()
     var body: some View {
         NavigationView{
             VStack {
@@ -28,6 +29,8 @@ struct SearchListView: View {
                         SearchSongView(songListViewModel: songListViewModel)
                     case "專輯":
                         SearchAlbumView(albumListViewModel: albumListViewModel)
+                    case "歌手":
+                        SearchArtistView(artistListViewModel: artistListViewModel)
                     default:
                         EmptyView()
                 }
@@ -40,6 +43,7 @@ struct SearchListView: View {
         .onChange(of: searchText) { newValue in
             songListViewModel.searchText = newValue
             albumListViewModel.searchText = newValue
+            artistListViewModel.searchText = newValue
         }
     }
 }
