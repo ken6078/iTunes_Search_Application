@@ -39,17 +39,17 @@ class AlbumListViewModel: ObservableObject{
                 self?.state = .good
                 self?.albums = []
                 self?.page = 0
-                self?.getSongList(for: text)
+                self?.getAlbumList(for: text)
             }.store(in: &subscriptions)
         
     }
     
     func loadMore(){
         print("Load More For: \(self.searchText) @ Page: \(self.page)")
-        getSongList(for: searchText)
+        getAlbumList(for: searchText)
     }
     
-    func getSongList(for searchText: String) {
+    func getAlbumList(for searchText: String) {
         
         guard !searchText.isEmpty else {
             self.state = .empty
@@ -87,7 +87,7 @@ class AlbumListViewModel: ObservableObject{
                     print("fetched \(result.resultCount)")
                 } catch {
                     print("Json Decode error: \(error)")
-                    let str = String(decoding: data, as: UTF8.self)
+//                    let str = String(decoding: data, as: UTF8.self)
                     print("Json Decode error by Url:\(encondeUrlText)")
 //                    print(encondeUrlText)
                     DispatchQueue.main.async {
@@ -98,8 +98,8 @@ class AlbumListViewModel: ObservableObject{
         }.resume()
     }
     
-    static func example() -> SongListViewModel {
-        let vm = SongListViewModel()
+    static func example() -> AlbumListViewModel {
+        let vm = AlbumListViewModel()
         vm.searchText = "Mayday"
         return vm
     }

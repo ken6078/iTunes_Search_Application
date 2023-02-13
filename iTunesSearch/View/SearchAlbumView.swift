@@ -52,6 +52,6 @@ struct SearchAlbumView: View {
 
 struct SearchAlbumView_Previews: PreviewProvider {
     static var previews: some View {
-        SearchSongView(songListViewModel: AlbumListViewModel.example())
+        SearchAlbumView(albumListViewModel: AlbumListViewModel.example())
     }
 }
