@@ -13,7 +13,7 @@ struct ContentView: View {
     }
     @State var shouldShowTabBar = false
     
-    let urlString = "https://music.apple.com/tw/developer/%E5%8F%B0%E7%81%A3%E7%84%A1%E5%8D%B0%E8%89%AF%E5%93%81%E8%82%A1%E4%BB%BD%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8/id1057896958?uo=4"
+    let urlString = "https://music.apple.com/tw/album/%E8%AA%AA%E5%A5%BD%E4%B8%8D%E5%93%AD/1632190508?i=1632190512"
     var body: some View {
         TabView{
             HomePage().tabItem {

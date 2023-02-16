@@ -16,9 +16,10 @@ struct SearchArtistView: View {
                     print("onTap: \(artist.artistName)")
                 }, label:{
                     HStack {
-                        ArtistUrlImageView(
+                        HtmlUrlImageView(
                             urlString: artist.artistLinkURL,
-                            magnification: 1.5
+                            magnification: 1.5,
+                            pictureHtmlIndex: 16
                         )
                         VStack(alignment: .leading) {
                             Text(artist.artistName)

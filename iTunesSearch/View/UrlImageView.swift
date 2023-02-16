@@ -12,24 +12,39 @@ struct UrlImageView: View {
     let urlString: String
     
     @State var data: Data?
+    @State var size: CGFloat = 60
+    @State var cornerRadius: CGFloat = 10
+    @State var customImage: Bool = false
+    @State var imageName: String = "music.mic.circle"
     
     var body: some View {
         if let data = data, let uiImage = UIImage(data: data) {
             Image(uiImage: uiImage)
                 .resizable()
                 .aspectRatio(contentMode: .fill)
-                .frame(width: 60, height: 60)
+                .frame(width: size, height: size)
                 .background(Color.gray)
-                .cornerRadius(10)
+                .cornerRadius(cornerRadius)
         } else {
-            Image(systemName: "music.mic.circle")
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(width: 60, height: 60)
-                .cornerRadius(10)
-                .onAppear {
-                    getData()
-                }
+            if customImage {
+                Image(imageName)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: size, height: size)
+                    .cornerRadius(size/2)
+                    .onAppear {
+                        getData()
+                    }
+            } else {
+                Image(systemName: imageName)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: size, height: size)
+                    .cornerRadius(size/2)
+                    .onAppear {
+                        getData()
+                    }
+            }
         }
     }
     

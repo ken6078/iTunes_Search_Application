@@ -8,7 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		74E0FAF0DE7C790F2960CB10 /* Pods_iTunesSearch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04ECACC952399A3A70401306 /* Pods_iTunesSearch.framework */; };
-		EE59ECB62999C4230073203B /* ArtistUrlImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE59ECB52999C4230073203B /* ArtistUrlImageView.swift */; };
+		EE119EC0299B1ACC007E8E17 /* SongView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE119EBF299B1ACC007E8E17 /* SongView.swift */; };
+		EE119EC6299C7A90007E8E17 /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE119EC5299C7A90007E8E17 /* SoundManager.swift */; };
+		EE119EC8299C7AC8007E8E17 /* SoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE119EC7299C7AC8007E8E17 /* SoundView.swift */; };
+		EE59ECB62999C4230073203B /* HtmlUrlImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE59ECB52999C4230073203B /* HtmlUrlImageView.swift */; };
 		EE59ECB82999D5DD0073203B /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE59ECB72999D5DD0073203B /* Artist.swift */; };
 		EE59ECBA2999D65C0073203B /* ArtistListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE59ECB92999D65C0073203B /* ArtistListViewModel.swift */; };
 		EE59ECBC2999D6F30073203B /* SearchArtistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE59ECBB2999D6F30073203B /* SearchArtistView.swift */; };
@@ -30,7 +33,10 @@
 		04ECACC952399A3A70401306 /* Pods_iTunesSearch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iTunesSearch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		645B803CDE155DBF1F5F4706 /* Pods-iTunesSearch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iTunesSearch.release.xcconfig"; path = "Target Support Files/Pods-iTunesSearch/Pods-iTunesSearch.release.xcconfig"; sourceTree = "<group>"; };
 		97C671E423BF9E0005F28F66 /* Pods-iTunesSearch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iTunesSearch.debug.xcconfig"; path = "Target Support Files/Pods-iTunesSearch/Pods-iTunesSearch.debug.xcconfig"; sourceTree = "<group>"; };
-		EE59ECB52999C4230073203B /* ArtistUrlImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistUrlImageView.swift; sourceTree = "<group>"; };
+		EE119EBF299B1ACC007E8E17 /* SongView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongView.swift; sourceTree = "<group>"; };
+		EE119EC5299C7A90007E8E17 /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
+		EE119EC7299C7AC8007E8E17 /* SoundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundView.swift; sourceTree = "<group>"; };
+		EE59ECB52999C4230073203B /* HtmlUrlImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HtmlUrlImageView.swift; sourceTree = "<group>"; };
 		EE59ECB72999D5DD0073203B /* Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
 		EE59ECB92999D65C0073203B /* ArtistListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistListViewModel.swift; sourceTree = "<group>"; };
 		EE59ECBB2999D6F30073203B /* SearchArtistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchArtistView.swift; sourceTree = "<group>"; };
@@ -123,12 +129,14 @@
 		EE75EB6B298CCD22003F2E1C /* View */ = {
 			isa = PBXGroup;
 			children = (
-				EE75EB73298CEA02003F2E1C /* SearchListView.swift */,
 				EEC96BE0298E91AD00B1014A /* UrlImageView.swift */,
+				EE59ECB52999C4230073203B /* HtmlUrlImageView.swift */,
+				EE75EB73298CEA02003F2E1C /* SearchListView.swift */,
 				EEB9716A2998E8A800AD83BB /* SearchAlbumView.swift */,
 				EE59ECBB2999D6F30073203B /* SearchArtistView.swift */,
 				EE74FB78299735F8002941E6 /* SearchSongView.swift */,
-				EE59ECB52999C4230073203B /* ArtistUrlImageView.swift */,
+				EE119EBF299B1ACC007E8E17 /* SongView.swift */,
+				EE119EC7299C7AC8007E8E17 /* SoundView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -139,6 +147,7 @@
 				EE75EB71298CE544003F2E1C /* SongListViewModel.swift */,
 				EEB971662998E6ED00AD83BB /* AlbumListViewModel.swift */,
 				EE59ECB92999D65C0073203B /* ArtistListViewModel.swift */,
+				EE119EC5299C7A90007E8E17 /* SoundManager.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -269,7 +278,7 @@
 			files = (
 				EE75EB72298CE544003F2E1C /* SongListViewModel.swift in Sources */,
 				EE75EB70298CE3B7003F2E1C /* Song.swift in Sources */,
-				EE59ECB62999C4230073203B /* ArtistUrlImageView.swift in Sources */,
+				EE59ECB62999C4230073203B /* HtmlUrlImageView.swift in Sources */,
 				EEB971672998E6ED00AD83BB /* AlbumListViewModel.swift in Sources */,
 				EEC96BE1298E91AD00B1014A /* UrlImageView.swift in Sources */,
 				EEB9716B2998E8A800AD83BB /* SearchAlbumView.swift in Sources */,
@@ -279,8 +288,11 @@
 				EE59ECBC2999D6F30073203B /* SearchArtistView.swift in Sources */,
 				EE75EB74298CEA02003F2E1C /* SearchListView.swift in Sources */,
 				EE59ECBA2999D65C0073203B /* ArtistListViewModel.swift in Sources */,
+				EE119EC0299B1ACC007E8E17 /* SongView.swift in Sources */,
+				EE119EC8299C7AC8007E8E17 /* SoundView.swift in Sources */,
 				EE74FB79299735F8002941E6 /* SearchSongView.swift in Sources */,
 				EEB971652998E6B000AD83BB /* Album.swift in Sources */,
+				EE119EC6299C7A90007E8E17 /* SoundManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

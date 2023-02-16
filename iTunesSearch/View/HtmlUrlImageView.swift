@@ -1,5 +1,5 @@
 //
-//  ArtistUrlImageView.swift
+//  HtmlUrlImageView.swift
 //  iTunesSearch
 //
 //  Created by Jacky Ben on 2023/2/13.
@@ -8,31 +8,46 @@
 import SwiftUI
 import Kanna
 
-struct ArtistUrlImageView: View {
+struct HtmlUrlImageView: View {
     
     let urlString: String
     
     @State var uiImage: UIImage?
     @State var magnification: Double = 1
-    @State var length: CGFloat = 60
+    @State var size: CGFloat = 60
+    // SongImage: 16, AlbumImage: 17
+    @State var pictureHtmlIndex: Int
+    @State var customImage: Bool = false
+    @State var imageName: String = "person.crop.circle"
     
     var body: some View {
         if let uiImage = uiImage {
             Image(uiImage: uiImage)
                 .resizable()
                 .aspectRatio(contentMode: .fill)
-                .frame(width: length, height: length)
+                .frame(width: size, height: size)
                 .background(Color.gray)
-                .cornerRadius(length/2)
+                .cornerRadius(size/2)
         } else {
-            Image(systemName: "person.crop.circle")
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(width: 60, height: 60)
-                .cornerRadius(10)
-                .onAppear {
-                    getData()
-                }
+            if customImage {
+                Image(imageName)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: size, height: size)
+                    .cornerRadius(size/2)
+                    .onAppear {
+                        getData()
+                    }
+            } else {
+                Image(systemName: imageName)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: size, height: size)
+                    .cornerRadius(size/2)
+                    .onAppear {
+                        getData()
+                    }
+            }
         }
     }
     
@@ -43,11 +58,11 @@ struct ArtistUrlImageView: View {
             if let data, let html = String(data: data, encoding: .utf8) {
                 if let doc = try? HTML(html: html, encoding: .utf8) {
                     // 以css找特定item
-                    if (doc.css("meta").count < 16) {
+                    if (doc.css("meta").count < pictureHtmlIndex) {
                         print("HTML parser error")
                         return
                     }
-                    guard let imageURL = URL(string: String(doc.css("meta")[16]["content"]!)) else {return}
+                    guard let imageURL = URL(string: String(doc.css("meta")[pictureHtmlIndex]["content"]!)) else {return}
                     URLSession.shared.dataTask(with: imageURL) {data, response, error in
                         if let error = error {
                             print("URLSession error: \(error)")
@@ -105,9 +120,9 @@ struct ArtistUrlImageView: View {
     }
 }
 
-struct ArtistUrlImageView_Previews: PreviewProvider {
+struct HtmlUrlImageView_Previews: PreviewProvider {
     static var previews: some View {
         let urlString = "https://music.apple.com/tw/artist/%E4%BA%94%E6%9C%88%E5%A4%A9/369211611?uo=4"
-        ArtistUrlImageView(urlString: urlString)
+        HtmlUrlImageView(urlString: urlString, pictureHtmlIndex: 16)
     }
 }

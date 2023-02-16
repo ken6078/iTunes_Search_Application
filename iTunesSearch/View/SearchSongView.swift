@@ -12,19 +12,22 @@ struct SearchSongView: View {
     var body: some View {
         List{
             ForEach(songListViewModel.songs) { song in
-                Button(action: {
-                    print("onTap: \(song.trackName), \(song.artistID)")
-                }, label:{
-                    HStack {
-                        UrlImageView(urlString: song.artworkUrl60)
-                        VStack(alignment: .leading) {
-                            Text(song.trackName)
-                            Text(song.artistName)
-                                .foregroundColor(Color.gray)
-                        }
-                        Spacer()
-                    }}
-                )
+                NavigationLink(destination:
+                                SongView(
+                                    song: song,
+                                    shareUrl: URL(string: song.collectionViewURL)!
+                                )){
+                                    HStack {
+                                        UrlImageView(urlString: song.artworkUrl60)
+                                        VStack(alignment: .leading) {
+                                            Text(song.trackName)
+                                                .lineLimit(2)
+                                            Text(song.artistName)
+                                                .foregroundColor(Color.gray)
+                                        }
+                                        Spacer()
+                                    }
+                }
                 .contentShape(Rectangle())
                 
             }

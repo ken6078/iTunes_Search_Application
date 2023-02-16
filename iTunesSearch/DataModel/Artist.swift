@@ -26,4 +26,21 @@ struct Artist: Codable, Identifiable {
         case artistLinkURL = "artistLinkUrl"
         case id = "artistId"
     }
+    
+    init(id: Int, wrapperType: String, artistType: String, artistName: String, artistLinkURL: String) {
+        self.id = id
+        self.wrapperType = wrapperType
+        self.artistType = artistType
+        self.artistName = artistName
+        self.artistLinkURL = artistLinkURL
+    }
+    
+    static func example() -> Artist {
+        Artist(
+            id: 300117743,
+            wrapperType: "artist",
+            artistType: "Artist",
+            artistName: "周杰倫",
+            artistLinkURL: "https://music.apple.com/tw/artist/%E5%91%A8%E6%9D%B0%E5%80%AB/300117743?uo=4")
+    }
 }
