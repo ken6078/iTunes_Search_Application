@@ -13,23 +13,8 @@ struct ContentView: View {
     }
     @State var shouldShowTabBar = false
     
-    let urlString = "https://music.apple.com/tw/album/%E8%AA%AA%E5%A5%BD%E4%B8%8D%E5%93%AD/1632190508?i=1632190512"
     var body: some View {
-        TabView{
-            HomePage().tabItem {
-                NavigationLink(destination: HomePage()){
-                    Image(systemName: "house")
-                    Text("首頁")
-                }
-            }
-            
-            SearchListView().tabItem {
-                NavigationLink(destination: SearchListView()){
-                    Image(systemName: "magnifyingglass")
-                    Text("搜尋")
-                }
-            }
-        }
+        SearchListView()
     }
 }
 

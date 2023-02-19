@@ -6,10 +6,12 @@
 //
 
 import SwiftUI
+import SafariServices
 
 struct SongView: View {
     @State var song: Song
     @State var shareUrl: URL?
+    @State var showSafari: Bool = false
     var body: some View {
         VStack {
             HtmlUrlImageView(
@@ -21,41 +23,62 @@ struct SongView: View {
                 imageName: "CD"
             )
             Spacer(minLength: 80)
-            HStack{
                 Text(song.trackName)
                     .font(.system(size:36))
-                Button(action: shareButton) {
-                    Image(systemName: "square.and.arrow.up")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(height: 36)
-                        .foregroundColor(Color("DefultForegrondColor"))
-                }
-            }
             Spacer()
             Text(song.artistName)
+                .font(.system(size:28))
                 .onAppear()
-            Spacer(minLength: 60)
-            HStack {
-                Text("預覽: ")
-                    .font(.system(size:36))
-                SoundView(urlString: song.previewURL)
-            }
+            Spacer()
+            Text("專輯：\(song.collectionName)")
+                .fixedSize()
+                .onAppear()
+            Spacer()
+            Text(song.releaseDate.prefix(10))
+                .font(.system(size:28))
         }
             .padding(.leading, 30)
             .padding(.trailing, 30)
             .padding(.bottom, 40)
-            .padding(.top)
             .frame(maxHeight: 300)
-        
         .navigationTitle(song.trackName)
-    }
-    
-    func shareButton() {
-            let url = shareUrl
-            let activityController = UIActivityViewController(activityItems: [url!], applicationActivities: nil)
-
-            UIApplication.shared.windows.first?.rootViewController!.present(activityController, animated: true, completion: nil)
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                ShareLink(item: shareUrl!)
+            }
+            
+            ToolbarItemGroup(placement: .bottomBar) {
+                Button{}label: {
+                    VStack {
+                        SoundView(urlString: song.previewURL)
+                        Text("預覽")
+                    }
+                }
+                Spacer()
+                VStack {
+                    Image(systemName: "mic.fill")
+                    Text("專輯")
+                }
+                Spacer()
+                VStack {
+                    Image(systemName: "person.fill")
+                    Text("歌手")
+                }
+                Spacer()
+                Button{
+                    showSafari.toggle()
+                } label: {
+                    VStack {
+                        Image(systemName: "music.note.tv.fill")
+                        Text("網頁版")
+                    }
+                }
+            }
+        }
+        .fullScreenCover(isPresented: $showSafari) {
+            SafariView(url: shareUrl!)
+        }
     }
 }
 

@@ -27,7 +27,7 @@ struct Song: Codable, Identifiable {
     let previewURL: String
     let artworkUrl30, artworkUrl60, artworkUrl100: String
     let collectionPrice, trackPrice: Double?
-    let releaseDate: String?
+    var releaseDate: String
     let collectionExplicitness, trackExplicitness: String
     let discCount, discNumber, trackCount, trackNumber: Int?
     let trackTimeMillis: Int
@@ -50,7 +50,7 @@ struct Song: Codable, Identifiable {
         case collectionArtistName
     }
     
-    init(wrapperType: String, kind: String, id: Int, artistID: Int, artistName: String, collectionName: String, collectionCensoredName: String?, trackName: String, trackCensoredName: String, artistViewURL: String?, collectionViewURL: String, trackViewURL: String?, previewURL: String, artworkUrl30: String, artworkUrl60: String, artworkUrl100: String, collectionPrice: Double?, trackPrice: Double?, releaseDate: String?, collectionExplicitness: String, trackExplicitness: String, discCount: Int?, discNumber: Int?, trackCount: Int?, trackNumber: Int?, trackTimeMillis: Int, country: String, currency: String, primaryGenreName: String, isStreamable: Bool?, collectionArtistID: Int?, collectionArtistName: String?) {
+    init(wrapperType: String, kind: String, id: Int, artistID: Int, artistName: String, collectionName: String, collectionCensoredName: String?, trackName: String, trackCensoredName: String, artistViewURL: String?, collectionViewURL: String, trackViewURL: String?, previewURL: String, artworkUrl30: String, artworkUrl60: String, artworkUrl100: String, collectionPrice: Double?, trackPrice: Double?, releaseDate: String, collectionExplicitness: String, trackExplicitness: String, discCount: Int?, discNumber: Int?, trackCount: Int?, trackNumber: Int?, trackTimeMillis: Int, country: String, currency: String, primaryGenreName: String, isStreamable: Bool?, collectionArtistID: Int?, collectionArtistName: String?) {
         self.wrapperType = wrapperType
         self.kind = kind
         self.id = id

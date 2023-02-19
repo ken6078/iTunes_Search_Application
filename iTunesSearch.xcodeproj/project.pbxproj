@@ -26,6 +26,7 @@
 		EEB971652998E6B000AD83BB /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB971642998E6B000AD83BB /* Album.swift */; };
 		EEB971672998E6ED00AD83BB /* AlbumListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB971662998E6ED00AD83BB /* AlbumListViewModel.swift */; };
 		EEB9716B2998E8A800AD83BB /* SearchAlbumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB9716A2998E8A800AD83BB /* SearchAlbumView.swift */; };
+		EEC51AF129A1B13E00719FAF /* SafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC51AF029A1B13E00719FAF /* SafariView.swift */; };
 		EEC96BE1298E91AD00B1014A /* UrlImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC96BE0298E91AD00B1014A /* UrlImageView.swift */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +53,7 @@
 		EEB971642998E6B000AD83BB /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
 		EEB971662998E6ED00AD83BB /* AlbumListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumListViewModel.swift; sourceTree = "<group>"; };
 		EEB9716A2998E8A800AD83BB /* SearchAlbumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAlbumView.swift; sourceTree = "<group>"; };
+		EEC51AF029A1B13E00719FAF /* SafariView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariView.swift; sourceTree = "<group>"; };
 		EEC96BDF298E08C500B1014A /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		EEC96BE0298E91AD00B1014A /* UrlImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -137,6 +139,7 @@
 				EE74FB78299735F8002941E6 /* SearchSongView.swift */,
 				EE119EBF299B1ACC007E8E17 /* SongView.swift */,
 				EE119EC7299C7AC8007E8E17 /* SoundView.swift */,
+				EEC51AF029A1B13E00719FAF /* SafariView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -286,6 +289,7 @@
 				EE75EB60298CA89D003F2E1C /* ContentView.swift in Sources */,
 				EE75EB5E298CA89D003F2E1C /* iTunesSearchApp.swift in Sources */,
 				EE59ECBC2999D6F30073203B /* SearchArtistView.swift in Sources */,
+				EEC51AF129A1B13E00719FAF /* SafariView.swift in Sources */,
 				EE75EB74298CEA02003F2E1C /* SearchListView.swift in Sources */,
 				EE59ECBA2999D65C0073203B /* ArtistListViewModel.swift in Sources */,
 				EE119EC0299B1ACC007E8E17 /* SongView.swift in Sources */,
@@ -430,7 +434,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -461,7 +465,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

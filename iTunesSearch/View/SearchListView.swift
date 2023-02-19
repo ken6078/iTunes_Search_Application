@@ -15,7 +15,7 @@ struct SearchListView: View {
     @StateObject var albumListViewModel = AlbumListViewModel()
     @StateObject var artistListViewModel = ArtistListViewModel()
     var body: some View {
-        NavigationView{
+        NavigationStack{
             VStack {
                 Picker(selection: $selectedType) {
                     ForEach(searchTypes, id: \.self) { type in
@@ -40,6 +40,7 @@ struct SearchListView: View {
             .navigationBarTitle("搜尋")
             .searchable(text: $searchText)
         }
+        .navigationViewStyle(.stack)
         .onChange(of: searchText) { newValue in
             songListViewModel.searchText = newValue
             albumListViewModel.searchText = newValue
