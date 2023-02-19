@@ -131,15 +131,9 @@
 		EE75EB6B298CCD22003F2E1C /* View */ = {
 			isa = PBXGroup;
 			children = (
-				EEC96BE0298E91AD00B1014A /* UrlImageView.swift */,
-				EE59ECB52999C4230073203B /* HtmlUrlImageView.swift */,
-				EE75EB73298CEA02003F2E1C /* SearchListView.swift */,
-				EEB9716A2998E8A800AD83BB /* SearchAlbumView.swift */,
-				EE59ECBB2999D6F30073203B /* SearchArtistView.swift */,
-				EE74FB78299735F8002941E6 /* SearchSongView.swift */,
-				EE119EBF299B1ACC007E8E17 /* SongView.swift */,
-				EE119EC7299C7AC8007E8E17 /* SoundView.swift */,
-				EEC51AF029A1B13E00719FAF /* SafariView.swift */,
+				EEC51AF429A1B96F00719FAF /* Unit */,
+				EEC51AF329A1B95500719FAF /* SongDetail */,
+				EEC51AF229A1B93400719FAF /* Search */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -163,6 +157,36 @@
 				EE59ECB72999D5DD0073203B /* Artist.swift */,
 			);
 			path = DataModel;
+			sourceTree = "<group>";
+		};
+		EEC51AF229A1B93400719FAF /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				EE75EB73298CEA02003F2E1C /* SearchListView.swift */,
+				EE74FB78299735F8002941E6 /* SearchSongView.swift */,
+				EEB9716A2998E8A800AD83BB /* SearchAlbumView.swift */,
+				EE59ECBB2999D6F30073203B /* SearchArtistView.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		EEC51AF329A1B95500719FAF /* SongDetail */ = {
+			isa = PBXGroup;
+			children = (
+				EE119EBF299B1ACC007E8E17 /* SongView.swift */,
+			);
+			path = SongDetail;
+			sourceTree = "<group>";
+		};
+		EEC51AF429A1B96F00719FAF /* Unit */ = {
+			isa = PBXGroup;
+			children = (
+				EEC96BE0298E91AD00B1014A /* UrlImageView.swift */,
+				EE59ECB52999C4230073203B /* HtmlUrlImageView.swift */,
+				EE119EC7299C7AC8007E8E17 /* SoundView.swift */,
+				EEC51AF029A1B13E00719FAF /* SafariView.swift */,
+			);
+			path = Unit;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
