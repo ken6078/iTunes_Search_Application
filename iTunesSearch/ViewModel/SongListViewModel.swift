@@ -85,7 +85,7 @@ class SongListViewModel: ObservableObject{
                     }
                     print("fetched \(result.resultCount)")
                 } catch {
-                    print("Json Decode error: \(error)")
+                    print("SongResult Json Decode error: \(error)")
                     let str = String(decoding: data, as: UTF8.self)
                     print(str)
                     print(encondeUrlText)

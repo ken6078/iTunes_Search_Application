@@ -46,15 +46,17 @@ struct ArtistView: View {
                             
                         List {
                             ForEach (artistdetailViewModel.albumList) { album in
-                                HStack (alignment: .center) {
-                                    UrlImageView(
-                                        urlString: album.artworkUrl100,
-                                        size: 75
-                                    )
-                                    VStack (alignment: .leading) {
-                                        Text(album.collectionName)
-                                        Text(album.releaseDate.prefix(10))
-                                            .foregroundColor(Color.gray)
+                                NavigationLink(destination: AlbumView(albumId: album.id)) {
+                                    HStack (alignment: .center) {
+                                        UrlImageView(
+                                            urlString: album.artworkUrl100,
+                                            size: 75
+                                        )
+                                        VStack (alignment: .leading) {
+                                            Text(album.collectionName)
+                                            Text(album.releaseDate.prefix(10))
+                                                .foregroundColor(Color.gray)
+                                        }
                                     }
                                 }
                             }

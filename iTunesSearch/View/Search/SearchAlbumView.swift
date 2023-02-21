@@ -12,19 +12,19 @@ struct SearchAlbumView: View {
     var body: some View {
         List{
             ForEach(albumListViewModel.albums) { album in
-                Button(action: {
-                    print("onTap: \(album.collectionName), \(album.artistName)")
-                }, label:{
+                NavigationLink (destination: AlbumView(albumId: album.id)) {
                     HStack {
                         UrlImageView(urlString: album.artworkUrl60)
                         VStack(alignment: .leading) {
                             Text(album.collectionName)
+                                .lineLimit(2)
                             Text(album.artistName)
                                 .foregroundColor(Color.gray)
+                                .lineLimit(2)
                         }
                         Spacer()
-                    }}
-                )
+                    }
+                }
                 .contentShape(Rectangle())
                 
             }

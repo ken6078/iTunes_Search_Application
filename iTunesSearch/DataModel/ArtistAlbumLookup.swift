@@ -27,7 +27,7 @@ struct ArtistAlbumLookup: Codable {
     let collectionName, collectionCensoredName: String?
     let artistViewURL, collectionViewURL: String?
     let artworkUrl60, artworkUrl100: String?
-    let collectionPrice: Int?
+    let collectionPrice: Double?
     let collectionExplicitness: String?
     let trackCount: Int?
     let copyright: String?

@@ -22,12 +22,13 @@ struct Album: Codable, Identifiable {
     let amgArtistID: Int?
     let artistName: String
     let collectionName, collectionCensoredName: String
-    let artistViewURL, collectionViewURL: String
+    let artistViewURL: String?
+    let collectionViewURL: String?
     let artworkUrl60, artworkUrl100: String
-    let collectionPrice: Int?
+    let collectionPrice: Double?
     let collectionExplicitness: String
     let trackCount: Int
-    let copyright: String
+    let copyright: String?
     let country: String
     let currency: String
     let releaseDate: String
@@ -60,10 +61,33 @@ struct Album: Codable, Identifiable {
         self.collectionPrice = artistAlbumLookUp.collectionPrice
         self.collectionExplicitness = artistAlbumLookUp.collectionExplicitness!
         self.trackCount = artistAlbumLookUp.trackCount!
-        self.copyright = artistAlbumLookUp.copyright!
+        self.copyright = artistAlbumLookUp.copyright
         self.country = artistAlbumLookUp.country!
         self.currency = artistAlbumLookUp.currency!
         self.releaseDate = artistAlbumLookUp.releaseDate!
         self.primaryGenreName = artistAlbumLookUp.primaryGenreName!
+    }
+    
+    init(albumSongLookup: AlbumSongLookup) {
+        self.wrapperType = albumSongLookup.wrapperType
+        self.collectionType = albumSongLookup.collectionType!
+        self.id = albumSongLookup.collectionID
+        self.artistID = albumSongLookup.artistID
+        self.amgArtistID = albumSongLookup.amgArtistID
+        self.artistName = albumSongLookup.artistName
+        self.collectionName = albumSongLookup.collectionName
+        self.collectionCensoredName = albumSongLookup.collectionCensoredName
+        self.artistViewURL = albumSongLookup.artistViewURL
+        self.collectionViewURL = albumSongLookup.collectionViewURL
+        self.artworkUrl60 = albumSongLookup.artworkUrl60
+        self.artworkUrl100 = albumSongLookup.artworkUrl100
+        self.collectionPrice = albumSongLookup.collectionPrice
+        self.collectionExplicitness = albumSongLookup.collectionExplicitness
+        self.trackCount = albumSongLookup.trackCount
+        self.copyright = albumSongLookup.copyright
+        self.country = albumSongLookup.country
+        self.currency = albumSongLookup.currency
+        self.releaseDate = albumSongLookup.releaseDate
+        self.primaryGenreName = albumSongLookup.primaryGenreName
     }
 }

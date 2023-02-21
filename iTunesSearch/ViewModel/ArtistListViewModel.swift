@@ -86,9 +86,9 @@ class ArtistListViewModel: ObservableObject{
                     }
                     print("fetched \(result.resultCount)")
                 } catch {
-                    print("Json Decode error: \(error)")
+                    print("ArtistResult Json Decode error: \(error)")
 //                    let str = String(decoding: data, as: UTF8.self)
-                    print("Json Decode error by Url:\(encondeUrlText)")
+//                    print("Json Decode error by Url:\(encondeUrlText)")
 //                    print(encondeUrlText)
                     DispatchQueue.main.async {
                         self?.state = .error("Json Decode error: \(error.localizedDescription)")

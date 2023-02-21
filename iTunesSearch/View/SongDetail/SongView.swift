@@ -56,9 +56,11 @@ struct SongView: View {
                     }
                 }
                 Spacer()
-                VStack {
-                    Image(systemName: "mic.fill")
-                    Text("專輯")
+                NavigationLink(destination: AlbumView(albumId: song.collectionId)){
+                    VStack {
+                        Image(systemName: "mic.fill")
+                        Text("專輯")
+                    }
                 }
                 Spacer()
                 NavigationLink(destination: ArtistView(artistId: song.artistID)) {

@@ -1,5 +1,5 @@
 //
-//  ArtistDetailViewModel.swift
+//  AlbumDetailViewModel.swift
 //  iTunesSearch
 //
 //  Created by Jacky Ben on 2023/2/21.
@@ -7,25 +7,25 @@
 
 import Foundation
 
-class ArtistDetailViewModel: ObservableObject {
+class AlbumDetailViewModel: ObservableObject {
     enum State: Comparable {
         case empty
         case ready
         case error(String)
     }
-    @Published var artistId: Int
-    @Published var artist: Artist?
-    @Published var albumList: [Album] = [Album]()
+    @Published var albumId: Int
+    @Published var album: Album?
+    @Published var songList: [Song] = [Song]()
     @Published var state: State
     
-    init (artistId: Int) {
-        self.artistId = artistId
+    init (albumId: Int) {
+        self.albumId = albumId
         self.state = .empty
         self.loadData()
     }
     
     func loadData() {
-        let urlText = String(format: "https://itunes.apple.com/lookup?country=tw&entity=album&id=\(artistId)&limit=20&sort=recent")
+        let urlText = String(format: "https://itunes.apple.com/lookup?country=tw&entity=song&id=\(albumId)&limit=20")
         guard let url = URL(string: urlText) else {return}
 
         
@@ -37,27 +37,31 @@ class ArtistDetailViewModel: ObservableObject {
                 }
             } else if let data = data {
                 do {
-                    let result = try JSONDecoder().decode(ArtistAlbumLookupResult.self, from: data)
+                    let result = try JSONDecoder().decode(AlbumSongLookupResult.self, from: data)
                     print("Json Decode Findish")
                     for node in result.results {
-                        if (node.wrapperType == "artist") {
-                            self?.artist = Artist(artistAlbumLookup: node)
+                        if (node.wrapperType == "collection") {
+                            self?.album = Album(albumSongLookup: node)
                         } else {
-                            self?.albumList.append(Album(artistAlbumLookUp: node))
+                            self?.songList.append(Song(albumSongLookup: node))
                         }
                     }
-                    self?.albumList.sort { $0.releaseDate > $1.releaseDate }
+                    self?.songList.sort { self?.sortedSolve(s1: $0, s2: $1) ?? false }
                     DispatchQueue.main.async {
                         self?.state = .ready
                     }
                     print("fetched \(result.resultCount)")
                 } catch {
-                    print("ArtistAlbumLookupResult Json Decode error: \(error)")
+                    print("AlbumSongLookupResult Json Decode error: \(error)")
                     DispatchQueue.main.async {
                         self?.state = .error("Json Decode error: \(error.localizedDescription)")
                     }
                 }
             }
         }.resume()
+    }
+    
+    func sortedSolve(s1: Song, s2: Song) -> Bool {
+        return s1.discNumber! * s1.trackCount! + s1.trackNumber! < s2.discNumber! * s2.trackCount! + s2.trackNumber!
     }
 }
