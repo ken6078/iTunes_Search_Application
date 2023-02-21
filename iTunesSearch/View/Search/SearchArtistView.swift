@@ -12,9 +12,7 @@ struct SearchArtistView: View {
     var body: some View {
         List{
             ForEach(artistListViewModel.artists) { artist in
-                Button(action: {
-                    print("onTap: \(artist.artistName)")
-                }, label:{
+                NavigationLink(destination: ArtistView(artistId: artist.id)){
                     HStack {
                         HtmlUrlImageView(
                             urlString: artist.artistLinkURL,
@@ -25,8 +23,8 @@ struct SearchArtistView: View {
                             Text(artist.artistName)
                         }
                         Spacer()
-                    }}
-                )
+                    }
+                }
                 .contentShape(Rectangle())
                 
             }

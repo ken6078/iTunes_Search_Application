@@ -24,7 +24,7 @@ struct Album: Codable, Identifiable {
     let collectionName, collectionCensoredName: String
     let artistViewURL, collectionViewURL: String
     let artworkUrl60, artworkUrl100: String
-    let collectionPrice: Int
+    let collectionPrice: Int?
     let collectionExplicitness: String
     let trackCount: Int
     let copyright: String
@@ -42,5 +42,28 @@ struct Album: Codable, Identifiable {
         case artistViewURL = "artistViewUrl"
         case collectionViewURL = "collectionViewUrl"
         case artworkUrl60, artworkUrl100, collectionPrice, collectionExplicitness, trackCount, copyright, country, currency, releaseDate, primaryGenreName
+    }
+    
+    init(artistAlbumLookUp: ArtistAlbumLookup) {
+        self.wrapperType = artistAlbumLookUp.wrapperType!
+        self.collectionType = artistAlbumLookUp.collectionType!
+        self.id = artistAlbumLookUp.collectionID!
+        self.artistID = artistAlbumLookUp.artistID!
+        self.amgArtistID = artistAlbumLookUp.amgArtistID
+        self.artistName = artistAlbumLookUp.artistName!
+        self.collectionName = artistAlbumLookUp.collectionName!
+        self.collectionCensoredName = artistAlbumLookUp.collectionCensoredName!
+        self.artistViewURL = artistAlbumLookUp.artistViewURL!
+        self.collectionViewURL = artistAlbumLookUp.collectionViewURL!
+        self.artworkUrl60 = artistAlbumLookUp.artworkUrl60!
+        self.artworkUrl100 = artistAlbumLookUp.artworkUrl100!
+        self.collectionPrice = artistAlbumLookUp.collectionPrice
+        self.collectionExplicitness = artistAlbumLookUp.collectionExplicitness!
+        self.trackCount = artistAlbumLookUp.trackCount!
+        self.copyright = artistAlbumLookUp.copyright!
+        self.country = artistAlbumLookUp.country!
+        self.currency = artistAlbumLookUp.currency!
+        self.releaseDate = artistAlbumLookUp.releaseDate!
+        self.primaryGenreName = artistAlbumLookUp.primaryGenreName!
     }
 }

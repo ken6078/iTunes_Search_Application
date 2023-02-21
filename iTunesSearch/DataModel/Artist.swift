@@ -27,12 +27,20 @@ struct Artist: Codable, Identifiable {
         case id = "artistId"
     }
     
-    init(id: Int, wrapperType: String, artistType: String, artistName: String, artistLinkURL: String) {
+    init (id: Int, wrapperType: String, artistType: String, artistName: String, artistLinkURL: String) {
         self.id = id
         self.wrapperType = wrapperType
         self.artistType = artistType
         self.artistName = artistName
         self.artistLinkURL = artistLinkURL
+    }
+    
+    init (artistAlbumLookup: ArtistAlbumLookup) {
+        self.id = artistAlbumLookup.artistID!
+        self.wrapperType = artistAlbumLookup.wrapperType!
+        self.artistType = artistAlbumLookup.artistType!
+        self.artistName = artistAlbumLookup.artistName!
+        self.artistLinkURL = artistAlbumLookup.artistLinkURL!
     }
     
     static func example() -> Artist {

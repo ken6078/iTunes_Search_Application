@@ -61,9 +61,11 @@ struct SongView: View {
                     Text("專輯")
                 }
                 Spacer()
-                VStack {
-                    Image(systemName: "person.fill")
-                    Text("歌手")
+                NavigationLink(destination: ArtistView(artistId: song.artistID)) {
+                    VStack {
+                        Image(systemName: "person.fill")
+                        Text("歌手")
+                    }
                 }
                 Spacer()
                 Button{
