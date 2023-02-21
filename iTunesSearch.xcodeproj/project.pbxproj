@@ -26,7 +26,6 @@
 		EE83F5C829A459BE00C1467F /* ArtistDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE83F5C729A459BE00C1467F /* ArtistDetailViewModel.swift */; };
 		EE83F5CA29A462DA00C1467F /* ArtistAlbumLookup.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE83F5C929A462DA00C1467F /* ArtistAlbumLookup.swift */; };
 		EE83F5CC29A46AB800C1467F /* ArtistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE83F5CB29A46AB800C1467F /* ArtistView.swift */; };
-		EE83F5CE29A4B14000C1467F /* AlbumSongLookup.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE83F5CD29A4B14000C1467F /* AlbumSongLookup.swift */; };
 		EEB971652998E6B000AD83BB /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB971642998E6B000AD83BB /* Album.swift */; };
 		EEB971672998E6ED00AD83BB /* AlbumListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB971662998E6ED00AD83BB /* AlbumListViewModel.swift */; };
 		EEB9716B2998E8A800AD83BB /* SearchAlbumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB9716A2998E8A800AD83BB /* SearchAlbumView.swift */; };
@@ -57,7 +56,6 @@
 		EE83F5C729A459BE00C1467F /* ArtistDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistDetailViewModel.swift; sourceTree = "<group>"; };
 		EE83F5C929A462DA00C1467F /* ArtistAlbumLookup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistAlbumLookup.swift; sourceTree = "<group>"; };
 		EE83F5CB29A46AB800C1467F /* ArtistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistView.swift; sourceTree = "<group>"; };
-		EE83F5CD29A4B14000C1467F /* AlbumSongLookup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumSongLookup.swift; sourceTree = "<group>"; };
 		EEB971642998E6B000AD83BB /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
 		EEB971662998E6ED00AD83BB /* AlbumListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumListViewModel.swift; sourceTree = "<group>"; };
 		EEB9716A2998E8A800AD83BB /* SearchAlbumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAlbumView.swift; sourceTree = "<group>"; };
@@ -166,7 +164,6 @@
 				EEB971642998E6B000AD83BB /* Album.swift */,
 				EE59ECB72999D5DD0073203B /* Artist.swift */,
 				EE83F5C929A462DA00C1467F /* ArtistAlbumLookup.swift */,
-				EE83F5CD29A4B14000C1467F /* AlbumSongLookup.swift */,
 			);
 			path = DataModel;
 			sourceTree = "<group>";
@@ -321,7 +318,6 @@
 				EE59ECB62999C4230073203B /* HtmlUrlImageView.swift in Sources */,
 				EEB971672998E6ED00AD83BB /* AlbumListViewModel.swift in Sources */,
 				EEC96BE1298E91AD00B1014A /* UrlImageView.swift in Sources */,
-				EE83F5CE29A4B14000C1467F /* AlbumSongLookup.swift in Sources */,
 				EE83F5C829A459BE00C1467F /* ArtistDetailViewModel.swift in Sources */,
 				EEB9716B2998E8A800AD83BB /* SearchAlbumView.swift in Sources */,
 				EE59ECB82999D5DD0073203B /* Artist.swift in Sources */,
