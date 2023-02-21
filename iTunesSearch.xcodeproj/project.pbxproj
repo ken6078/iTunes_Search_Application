@@ -143,11 +143,11 @@
 		EE75EB6B298CCD22003F2E1C /* View */ = {
 			isa = PBXGroup;
 			children = (
-				EEC51AF329A1B95500719FAF /* SongDetail */,
 				EEC51AF229A1B93400719FAF /* Search */,
 				EEC51AF429A1B96F00719FAF /* Unit */,
 				EE83F5CB29A46AB800C1467F /* ArtistView.swift */,
 				EE83F5D329A4C47800C1467F /* AlbumView.swift */,
+				EE119EBF299B1ACC007E8E17 /* SongView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -186,14 +186,6 @@
 				EE59ECBB2999D6F30073203B /* SearchArtistView.swift */,
 			);
 			path = Search;
-			sourceTree = "<group>";
-		};
-		EEC51AF329A1B95500719FAF /* SongDetail */ = {
-			isa = PBXGroup;
-			children = (
-				EE119EBF299B1ACC007E8E17 /* SongView.swift */,
-			);
-			path = SongDetail;
 			sourceTree = "<group>";
 		};
 		EEC51AF429A1B96F00719FAF /* Unit */ = {

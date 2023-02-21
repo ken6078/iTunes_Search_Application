@@ -38,7 +38,6 @@ class ArtistDetailViewModel: ObservableObject {
             } else if let data = data {
                 do {
                     let result = try JSONDecoder().decode(ArtistAlbumLookupResult.self, from: data)
-                    print("Json Decode Findish")
                     for node in result.results {
                         if (node.wrapperType == "artist") {
                             self?.artist = Artist(artistAlbumLookup: node)

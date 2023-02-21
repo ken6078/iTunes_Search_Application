@@ -13,6 +13,7 @@ struct SoundView: View {
     @StateObject private var soundManager = SoundManager()
     var body: some View {
             Image(systemName: playing ? "pause.circle.fill": "play.circle.fill")
+                .resizable()
                 .onTapGesture {
                     soundManager.playSound(sound: urlString)
                     if (playing) {

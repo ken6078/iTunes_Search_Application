@@ -75,7 +75,6 @@ class AlbumListViewModel: ObservableObject{
                 do {
                     let result = try JSONDecoder().decode(AlbumResult.self, from: data)
                     DispatchQueue.main.async {
-                        print("Json Decode Findish")
                         for album in result.results {
                             self?.albums.append(album)
                         }

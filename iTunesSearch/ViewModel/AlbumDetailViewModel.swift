@@ -38,7 +38,6 @@ class AlbumDetailViewModel: ObservableObject {
             } else if let data = data {
                 do {
                     let result = try JSONDecoder().decode(AlbumSongLookupResult.self, from: data)
-                    print("Json Decode Findish")
                     for node in result.results {
                         if (node.wrapperType == "collection") {
                             self?.album = Album(albumSongLookup: node)

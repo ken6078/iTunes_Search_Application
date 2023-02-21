@@ -75,7 +75,6 @@ class ArtistListViewModel: ObservableObject{
                 do {
                     let result = try JSONDecoder().decode(ArtistResult.self, from: data)
                     DispatchQueue.main.async {
-                        print("Json Decode Findish")
                         for artist in result.results {
                             self?.artists.append(artist)
                         }

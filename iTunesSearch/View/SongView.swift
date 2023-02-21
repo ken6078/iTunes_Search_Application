@@ -14,14 +14,24 @@ struct SongView: View {
     @State var showSafari: Bool = false
     var body: some View {
         VStack {
-            HtmlUrlImageView(
-                urlString: song.collectionViewURL,
-                magnification: 1.5,
-                size: 200,
-                pictureHtmlIndex: 17,
-                customImage: true,
-                imageName: "CD"
-            )
+            ZStack(alignment: .bottomTrailing) {
+                HtmlUrlImageView(
+                    urlString: song.collectionViewURL,
+                    magnification: 1.5,
+                    size: 200,
+                    pictureHtmlIndex: 17,
+                    customImage: true,
+                    imageName: "CD"
+                )
+                //icon底色
+                Circle()
+                    .fill(Color("DefultBackgrondColor"))
+                    .frame(width: 72, height: 72)
+                SoundView(urlString: song.previewURL)
+                    .frame(width: 72, height: 72)
+                    .foregroundColor(Color.green)
+            }
+            
             Spacer(minLength: 80)
                 Text(song.trackName)
                     .font(.system(size:36))
@@ -44,17 +54,16 @@ struct SongView: View {
         .navigationTitle(song.trackName)
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
-            ToolbarItem(placement: .navigationBarTrailing) {
+            ToolbarItemGroup(placement: .navigationBarTrailing) {
+                Button{
+                    showSafari.toggle()
+                } label: {
+                    Image(systemName: "music.note.tv")
+                }
                 ShareLink(item: shareUrl!)
             }
             
             ToolbarItemGroup(placement: .bottomBar) {
-                Button{}label: {
-                    VStack {
-                        SoundView(urlString: song.previewURL)
-                        Text("預覽")
-                    }
-                }
                 Spacer()
                 NavigationLink(destination: AlbumView(albumId: song.collectionId)){
                     VStack {
@@ -70,14 +79,6 @@ struct SongView: View {
                     }
                 }
                 Spacer()
-                Button{
-                    showSafari.toggle()
-                } label: {
-                    VStack {
-                        Image(systemName: "music.note.tv.fill")
-                        Text("網頁版")
-                    }
-                }
             }
         }
         .fullScreenCover(isPresented: $showSafari) {
